@@ -9,8 +9,10 @@ the first 50 terms of the fibonacci sequence, starting with 0
 # Don't try writing the code all at once. Break it down into pieces
 # I have some tips below that will help you figure this out. You can delete them (and the code that goes with them) when you no longer need them
 """
-
-fib = [0, 1]
+x = 0
+fib = [0, 1, 1]
+for i in range(47):
+    fib.append(fib[1 + i] + fib[2 + i])
 
 # TIP: How can you refer to the last item in a list? Print the last item in the list called fib
 
@@ -29,14 +31,12 @@ fib = [0, 1]
 
 
 
-
 # DON'T EDIT BELOW THIS LINE #
 # I have code here that will help you know if your answer works
 # Don't just copy and paste the list - that is NOT a valid answer
 # Don't change the name of the list above or the error checking will not work correctly
 
-fibonacci_results = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765, 10946, 17711, 28657, 46368, 75025, 121393, 196418, 317811, 514229, 832040, 1346269, 2178309, 3524578, 5702887
-, 9227465, 14930352, 24157817, 39088169, 63245986, 102334155, 165580141, 267914296, 433494437, 701408733, 1134903170, 1836311903, 2971215073, 4807526976, 7778742049]
+fibonacci_results = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765, 10946, 17711, 28657, 46368, 75025, 121393, 196418, 317811, 514229, 832040, 1346269, 2178309, 3524578, 5702887, 9227465, 14930352, 24157817, 39088169, 63245986, 102334155, 165580141, 267914296, 433494437, 701408733, 1134903170, 1836311903, 2971215073, 4807526976, 7778742049]
 
 def test_length(student_results):
     """Determine if student results contain the right number of terms"""
@@ -62,7 +62,8 @@ def test_contents(student_results):
         else:
             print(f"Term at index{n} is incorrect. You have {fib[n]} and I have {fibonacci_results[n]}")
             is_correct = False
-            
+    return is_correct
+
 if test_length(fib) and test_contents(fib):
     print("""
 You've passed my automated tests.
